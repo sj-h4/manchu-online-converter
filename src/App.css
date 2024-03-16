@@ -2,26 +2,20 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.input-transliteration {
+  min-height: 10rem;
+  min-width: 40rem;
+  margin-bottom: 2rem;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.manchu-text-container {
+  display: flex;
+  border: 1px solid #000;
+  min-height: 30rem;
+  min-width: 20rem;
 }
-.logo.solid:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.manchu-text {
+  font-size: 1.5rem;
+  writing-mode: vertical-rl;
 }

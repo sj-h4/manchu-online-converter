@@ -1,5 +1,5 @@
 [package]
-name = "rust-lib"
+name = "wasm"
 version = "0.1.0"
 authors = ["sj <64534668+sj-h4@users.noreply.github.com>"]
 edition = "2018"

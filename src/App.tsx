@@ -1,28 +1,28 @@
 import { createSignal } from 'solid-js';
-import { convert_to_manchu } from '../rust-lib/pkg';
+import { convert_to_manchu } from '../wasm/pkg';
 import './App.css';
 
 function App() {
-  const [count, setCount] = createSignal(0);
-  const text = "manju gisun";
-  const manchu_text = convert_to_manchu(text);
+  const [inputText, setInputText] = createSignal("");
+  const [manchuText, setManchuText] = createSignal("");
+
+
+  const handleInput = (e: any) => {
+    setInputText(e.currentTarget.value);
+    const newManchuText = convert_to_manchu(inputText());
+    setManchuText(newManchuText);
+  };
 
 
   return (
     <>
       <h1>Manchu Converter</h1>
-      <p>{manchu_text}</p>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count()}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <p>input transliteration below:</p>
+      <input class="input-transliteration" type="text" value={inputText()} onChange={handleInput} />
+      <div>output Manchu Text:</div>
+      <div class="manchu-text-container">
+        <p class="manchu-text">{manchuText()}</p>
       </div>
-      <p class="read-the-docs">
-        Click on the Vite and Solid logos to learn more
-      </p>
     </>
   );
 }
