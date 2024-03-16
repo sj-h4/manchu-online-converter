@@ -6,9 +6,10 @@ function App() {
   const [inputText, setInputText] = createSignal("");
   const [manchuText, setManchuText] = createSignal("");
 
-
-  const handleInput = (e: any) => {
-    setInputText(e.currentTarget.value);
+  const handleInput = (e: Event) => {
+    const target = e.target as HTMLTextAreaElement;
+    if (!target) return;
+    setInputText(target.value);
     const newManchuText = convert_to_manchu(inputText());
     setManchuText(newManchuText);
   };
@@ -17,8 +18,9 @@ function App() {
   return (
     <>
       <h1>Manchu Converter</h1>
+      <p>NOTE: This application is work in progress.</p>
       <p>input transliteration below:</p>
-      <input class="input-transliteration" type="text" value={inputText()} onChange={handleInput} />
+      <textarea class="input-transliteration" onInput={handleInput} value={inputText()} />
       <div>output Manchu Text:</div>
       <div class="manchu-text-container">
         <p class="manchu-text">{manchuText()}</p>
