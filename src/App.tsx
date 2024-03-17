@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <h1>Manchu Converter</h1>
-      <p>NOTE: This application is work in progress.</p>
+      <p>NOTE: This application is a work in progress.</p>
       <p>input transliteration below:</p>
       <textarea class="input-transliteration" onInput={handleInput} value={inputText()} />
       <div>output Manchu Text:</div>
